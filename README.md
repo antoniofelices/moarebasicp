@@ -1,6 +1,6 @@
-# Custom post Type WP
+# Funciones WP
 
-Plugin para crear CPT en WP.
+Plugin para crear CPT, categories, custom fields y cargar google analytics en WP.
 
 ## Axioma
 
