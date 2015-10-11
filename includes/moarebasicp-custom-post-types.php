@@ -24,7 +24,7 @@ function moarebasicp_cont_xxx() {
 	);
 	$args = array(
 		'labels'        => $labels,
-		'description'   => _e('My custom type', 'moarebasicp'),
+		'description'   => __('My custom type', 'moarebasicp'),
 		'public'        => true,
 		'menu_position' => 15,
 		'supports'      => array( 'title','author','thumbnail','editor','excerpt','comments','revisions','custom-fields' ),

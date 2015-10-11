@@ -18,12 +18,7 @@
 
 define ( 'MOARE_BASIC_PLUGIN_PATH', plugin_dir_path(__FILE__) );
 
-/* Localization
-function sm_localization(){
-  load_plugin_textdomain( 'moarebasicp', false, MOARE_BASIC_PLUGIN_PATH . '/languages' );
-}
-*/
-
+// Localization
 function moarebasicp_load_plugin_textdomain() {
     load_plugin_textdomain( 'moarebasicp', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
 }

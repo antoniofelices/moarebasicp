@@ -6,19 +6,19 @@
 **/
 
 // New categories
-function moarebasicp_cat_map() {
+function moarebasicp_cat_xxx() {
   $labels = array(
-    'name'              => __( 'Categorie', 'moarebasicp' ),
-    'singular_name'     => __( 'Categorie', 'moarebasicp' ),
-    'search_items'      => __( 'Search Categorie', 'moarebasicp' ),
-    'all_items'         => __( 'All Categorie', 'moarebasicp' ),
-    'parent_item'       => __( 'Parent Categorie', 'moarebasicp' ),
-    'parent_item_colon' => __( 'Parent Categorie:', 'moarebasicp' ),
-    'edit_item'         => __( 'Edit Categorie', 'moarebasicp' ),
-    'update_item'       => __( 'Update Categorie', 'moarebasicp' ),
-    'add_new_item'      => __( 'Add New Categorie', 'moarebasicp' ),
-    'new_item_name'     => __( 'New Categorie Name', 'moarebasicp' ),
-    'menu_name'         => __( 'Categorie', 'moarebasicp' )
+    'name'              => __( 'Category', 'moarebasicp' ),
+    'singular_name'     => __( 'Category', 'moarebasicp' ),
+    'search_items'      => __( 'Search category', 'moarebasicp' ),
+    'all_items'         => __( 'All categories', 'moarebasicp' ),
+    'parent_item'       => __( 'Parent category', 'moarebasicp' ),
+    'parent_item_colon' => __( 'Parent category:', 'moarebasicp' ),
+    'edit_item'         => __( 'Edit category', 'moarebasicp' ),
+    'update_item'       => __( 'Update category', 'moarebasicp' ),
+    'add_new_item'      => __( 'Add New category', 'moarebasicp' ),
+    'new_item_name'     => __( 'New category Name', 'moarebasicp' ),
+    'menu_name'         => __( 'Categories', 'moarebasicp' )
   );
 
   $args = array(
@@ -32,7 +32,7 @@ function moarebasicp_cat_map() {
 
   register_taxonomy( 'categoriescustom', array( 'mycustom' ), $args );
 }
-add_action( 'init', 'moarebasicp_cat_map', 0 );
+add_action( 'init', 'moarebasicp_cat_xxx', 0 );
 
 // Namespace
 function moarebasicp_namespace_add_custom_types( $query ) {
