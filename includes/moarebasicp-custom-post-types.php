@@ -6,21 +6,21 @@
 **/
 
 // CPT-1
-function smbp_cont_xxx() {
+function moarebasicp_cont_xxx() {
 	$labels = array(
-		'name'               => __( 'mycustom', 'smbp' ),
-		'singular_name'      => __( 'mycustom', 'smbp' ),
-		'add_new'            => __( 'Add new', 'smbp' ),
-		'add_new_item'       => __( 'Add new mycustom', 'smbp' ),
-		'edit_item'          => __( 'Edit mycustom', 'smbp' ),
-		'new_item'           => __( 'New mycustom', 'smbp' ),
-		'all_items'          => __( 'All mycustom', 'smbp' ),
-		'view_item'          => __( 'See mycustom', 'smbp' ),
-		'search_items'       => __( 'Search mycustom', 'smbp' ),
-		'not_found'          => __( 'Not found mycustom', 'smbp' ),
-		'not_found_in_trash' => __( 'Not found mycustom in trash', 'smbp' ), 
+		'name'               => __( 'mycustom', 'moarebasicp' ),
+		'singular_name'      => __( 'mycustom', 'moarebasicp' ),
+		'add_new'            => __( 'Add new', 'moarebasicp' ),
+		'add_new_item'       => __( 'Add new mycustom', 'moarebasicp' ),
+		'edit_item'          => __( 'Edit mycustom', 'moarebasicp' ),
+		'new_item'           => __( 'New mycustom', 'moarebasicp' ),
+		'all_items'          => __( 'All mycustom', 'moarebasicp' ),
+		'view_item'          => __( 'See mycustom', 'moarebasicp' ),
+		'search_items'       => __( 'Search mycustom', 'moarebasicp' ),
+		'not_found'          => __( 'Not found mycustom', 'moarebasicp' ),
+		'not_found_in_trash' => __( 'Not found mycustom in trash', 'moarebasicp' ), 
 		'parent_item_colon'  => '',
-		'menu_name'          => __( 'MyCustom', 'smbp')
+		'menu_name'          => __( 'MyCustom', 'moarebasicp')
 	);
 	$args = array(
 		'labels'        => $labels,
@@ -34,27 +34,27 @@ function smbp_cont_xxx() {
 	);
 	register_post_type( 'mycustom', $args );	
 }
-add_action( 'init', 'smbp_cont_xxx' );
+add_action( 'init', 'moarebasicp_cont_xxx' );
 
 
 // Custom-type y authors archives
-function smbp_custom_post_author_archive($query) {
+function moarebasicp_custom_post_author_archive($query) {
     if (!is_admin() && $query->is_author)
         $query->set( 'post_type', array('mycustom', 'mycustom1', 'mycustom3') );
     remove_action( 'pre_get_posts', 'custom_post_author_archive' );
 }
-add_action('pre_get_posts', 'smbp_custom_post_author_archive');
+add_action('pre_get_posts', 'moarebasicp_custom_post_author_archive');
 
 // Custom fields added to CPT-1
-function smbp_add_metabox_mycustom() {
+function moarebasicp_add_metabox_mycustom() {
 	if( function_exists( 'add_meta_box' ) ) {
-		add_meta_box( 'smbp-metabox', __('Custom fields','smbp'), 'smbp_show_metabox_mycustom', 'mycustom', 'advanced', 'high' );
+		add_meta_box( 'moarebasicp-metabox', __('Custom fields','moarebasicp'), 'moarebasicp_show_metabox_mycustom', 'mycustom', 'advanced', 'high' );
 	}
 }
-add_action( 'add_meta_boxes_mycustom', 'smbp_add_metabox_mycustom' );
+add_action( 'add_meta_boxes_mycustom', 'moarebasicp_add_metabox_mycustom' );
 
-function smbp_show_metabox_mycustom( $post ) {
-	// wp_nonce_field( 'smbp_add_metabox_map', 'smbp_meta_box_noncename' );
+function moarebasicp_show_metabox_mycustom( $post ) {
+	// wp_nonce_field( 'moarebasicp_add_metabox_map', 'moarebasicp_meta_box_noncename' );
 	$post_meta = get_post_custom($post->ID);
 
 	// Clone if you need more custom-fields
@@ -64,20 +64,20 @@ function smbp_show_metabox_mycustom( $post ) {
 	}
 	?>
 	<div class="form-group">
-		<label for="field-name"><?php _e('Custom field name', 'smbp'); ?></label>
+		<label for="field-name"><?php _e('Custom field name', 'moarebasicp'); ?></label>
 		<input id="field-name" type="text" name="mycustom_field_name" value="<?php echo esc_attr( $current_value ); ?>" />
-		<p class="field-description"><?php _e('Custom field description', 'smbp'); ?></p>
+		<p class="field-description"><?php _e('Custom field description', 'moarebasicp'); ?></p>
 	</div>
 <?php 
 }
 
-function smbp_save_metabox_mycustom( $post_id, $post ) {
+function moarebasicp_save_metabox_mycustom( $post_id, $post ) {
 
 	if ( 'post' == $post->post_type || !current_user_can('edit_post', $post_id) ){
 		return;
 	}
 
-	/*if ( !isset( $_POST['smbp_meta_box_noncename'] ) || !wp_verify_nonce( $_POST['smbp_meta_box_noncename'], 'smbp_meta_box' ) ) {
+	/*if ( !isset( $_POST['moarebasicp_meta_box_noncename'] ) || !wp_verify_nonce( $_POST['moarebasicp_meta_box_noncename'], 'moarebasicp_meta_box' ) ) {
 		return;
 	}*/
 
@@ -90,7 +90,7 @@ function smbp_save_metabox_mycustom( $post_id, $post ) {
 		}
 	}
 }
-add_action( 'save_post', 'smbp_save_metabox_mycustom', 10, 2 );
+add_action( 'save_post', 'moarebasicp_save_metabox_mycustom', 10, 2 );
 
 /* Paste this inside cpt loop template php == theme
 	$custom_fields = get_post_custom();

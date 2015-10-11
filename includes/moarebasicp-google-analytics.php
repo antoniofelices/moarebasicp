@@ -5,7 +5,7 @@
 *
 **/
 
-function smbp_google_analytics(){?>
+function moarebasicp_google_analytics(){?>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -19,4 +19,4 @@ function smbp_google_analytics(){?>
 </script>
 
 <?php }
-add_action( 'wp_head', 'smbp_google_analytics', 10 );
+add_action( 'wp_head', 'moarebasicp_google_analytics', 10 );
