@@ -1,12 +1,11 @@
-# Funciones WP
+# Functions WP
 
-Plugin para crear CPT, categories, custom fields y cargar google analytics en WP.
+Some functions Studio Moare use to create a websites base on WordPress. Basically: custom post types, custom fields and google analytics.
 
-## Axioma
+## Axiom
 
-En functions.php iran todas las funciones relacionadas con el theme. Si desactivo mi theme esas funciones dejaran de funcionar. 
+On functions.php you should write all your theme functions. If you turn off your theme, these functions won't work.
 
-En un plugin especifico iran todas las funciones que usare en mi sitio web independientemente del theme que use.
+Therefore declare somethings like google analytics or your custom post types on functions.php is not a good idea. Instead is better to have a simple plugin to do that.
 
-Mirar: [Justin Tadlock](http://justintadlock.com/archives/2013/09/14/why-custom-post-types-belong-in-plugins)
-
+Read: [Justin Tadlock](http://justintadlock.com/archives/2013/09/14/why-custom-post-types-belong-in-plugins)

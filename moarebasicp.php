@@ -1,13 +1,13 @@
 <?php
 /**
 *
-* Plugin Name: Moare basic plugin
+* Plugin Name: Moare basic functions
 * Plugin URI: http://studiomoare.com
-* Description: Plugin con funciones para studio moareamoare.
+* Description: Some functions Studio Moare use to create a websites.
 * Version: 1.0
 * Author: Antonio
 * Author URI: http://studiomoare.com
-* License: GPLv2 o posterior
+* License: GPLv2 or any later version
 * Text Domain: moarebasicp
 * Domain Path: /languages
 *

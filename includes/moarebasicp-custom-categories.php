@@ -22,7 +22,7 @@ function moarebasicp_cat_map() {
   );
 
   $args = array(
-    'hierarchical'      => true, //change if you need a tags (not hierarchy)
+    'hierarchical'      => true, //change if you need a tags = not hierarchy)
     'labels'            => $labels,
     'show_ui'           => true,
     'show_admin_column' => true,

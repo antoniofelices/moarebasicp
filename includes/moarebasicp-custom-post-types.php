@@ -24,7 +24,7 @@ function moarebasicp_cont_xxx() {
 	);
 	$args = array(
 		'labels'        => $labels,
-		'description'   => 'My custom type',
+		'description'   => _e('My custom type', 'moarebasicp'),
 		'public'        => true,
 		'menu_position' => 15,
 		'supports'      => array( 'title','author','thumbnail','editor','excerpt','comments','revisions','custom-fields' ),
@@ -54,7 +54,7 @@ function moarebasicp_add_metabox_mycustom() {
 add_action( 'add_meta_boxes_mycustom', 'moarebasicp_add_metabox_mycustom' );
 
 function moarebasicp_show_metabox_mycustom( $post ) {
-	// wp_nonce_field( 'moarebasicp_add_metabox_map', 'moarebasicp_meta_box_noncename' );
+	// wp_nonce_field( 'moarebasicp-add_metabox_map', 'moarebasicp-meta_box_noncename' );
 	$post_meta = get_post_custom($post->ID);
 
 	// Clone if you need more custom-fields
@@ -77,7 +77,7 @@ function moarebasicp_save_metabox_mycustom( $post_id, $post ) {
 		return;
 	}
 
-	/*if ( !isset( $_POST['moarebasicp_meta_box_noncename'] ) || !wp_verify_nonce( $_POST['moarebasicp_meta_box_noncename'], 'moarebasicp_meta_box' ) ) {
+	/*if ( !isset( $_POST['moarebasicp-meta_box_noncename'] ) || !wp_verify_nonce( $_POST['moarebasicp-meta_box_noncename'], 'moarebasicp_meta_box' ) ) {
 		return;
 	}*/
 
