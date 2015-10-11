@@ -2,13 +2,13 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Moare basic functions\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Sun Oct 11 2015 16:50:12 GMT+0200 (CEST)\n"
-"POT-Revision-Date: Sun Oct 11 2015 16:50:25 GMT+0200 (CEST)\n"
+"Project-Id-Version: _s 1.0.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
+"POT-Creation-Date: 2015-01-06 02:24:02+00:00\n"
+"POT-Revision-Date: Sun Oct 11 2015 17:51:55 GMT+0200 (CEST)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr ""
 msgid "Moare basic functions"
 msgstr ""
 
-#. URI of the plugin
+#. Author URI of the theme
 msgid "http://studiomoare.com"
 msgstr ""
 
@@ -40,96 +40,104 @@ msgstr ""
 msgid "Antonio"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-categories.php:11 ../includes/moarebasicp-
-#: custom-categories.php:12 ../includes/moarebasicp-custom-categories.php:21
-msgid "Categorie"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-categories.php:11 ../..
+#: /plugins/moarebasicp/includes/moarebasicp-custom-categories.php:12
+msgid "Category"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-categories.php:13
-msgid "Search Categorie"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-categories.php:13
+msgid "Search category"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-categories.php:14
-msgid "All Categorie"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-categories.php:14
+msgid "All categories"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-categories.php:15
-msgid "Parent Categorie"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-categories.php:15
+msgid "Parent category"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-categories.php:16
-msgid "Parent Categorie:"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-categories.php:16
+msgid "Parent category:"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-categories.php:17
-msgid "Edit Categorie"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-categories.php:17
+msgid "Edit category"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-categories.php:18
-msgid "Update Categorie"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-categories.php:18
+msgid "Update category"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-categories.php:19
-msgid "Add New Categorie"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-categories.php:19
+msgid "Add New category"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-categories.php:20
-msgid "New Categorie Name"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-categories.php:20
+msgid "New category Name"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-post-types.php:11 ../includes/moarebasicp-
-#: custom-post-types.php:12 ../includes/moarebasicp-custom-post-types.php:23
-msgid "portfolio"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-categories.php:21
+msgid "Categories"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-post-types.php:13
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-post-types.php:11 ../..
+#: /plugins/moarebasicp/includes/moarebasicp-custom-post-types.php:12
+msgid "mycustom"
+msgstr ""
+
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-post-types.php:13
 msgid "Add new"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-post-types.php:14
-msgid "Add new portfolio"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-post-types.php:14
+msgid "Add new mycustom"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-post-types.php:15
-msgid "Edit portfolio"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-post-types.php:15
+msgid "Edit mycustom"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-post-types.php:16
-msgid "New portfolio"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-post-types.php:16
+msgid "New mycustom"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-post-types.php:17
-msgid "All portfolio"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-post-types.php:17
+msgid "All mycustom"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-post-types.php:18
-msgid "See portfolio"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-post-types.php:18
+msgid "See mycustom"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-post-types.php:19
-msgid "Search portfolio"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-post-types.php:19
+msgid "Search mycustom"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-post-types.php:20
-msgid "Not found portfolio"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-post-types.php:20
+msgid "Not found mycustom"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-post-types.php:21
-msgid "Not found portfolio in trash"
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-post-types.php:21
+msgid "Not found mycustom in trash"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-post-types.php:27
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-post-types.php:23
+msgid "MyCustom"
+msgstr ""
+
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-post-types.php:27
 msgid "My custom type"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-post-types.php:51
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-post-types.php:51
 msgid "Custom fields"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-post-types.php:67
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-post-types.php:67
 msgid "Custom field name"
 msgstr ""
 
-#: ../includes/moarebasicp-custom-post-types.php:69
+#: ../../plugins/moarebasicp/includes/moarebasicp-custom-post-types.php:69
 msgid "Custom field description"
 msgstr ""
