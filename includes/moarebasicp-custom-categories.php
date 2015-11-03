@@ -34,11 +34,3 @@ function moarebasicp_cat_xxx() {
 }
 add_action( 'init', 'moarebasicp_cat_xxx', 0 );
 
-// Namespace
-function moarebasicp_namespace_add_custom_types( $query ) {
-  if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
-    $query->set( 'post_type', array('nav_menu_item', 'mycustom'));
-          return $query;
-        }
-}
-add_filter( 'pre_get_posts', 'moarebasicp_namespace_add_custom_types' );
