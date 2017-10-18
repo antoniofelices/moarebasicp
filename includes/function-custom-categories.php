@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
 *
 * Categories & Tags
@@ -7,6 +7,7 @@
 
 // New categories
 function moarebasicp_cat_xxx() {
+
   $labels = array(
     'name'              => __( 'Category', 'moarebasicp' ),
     'singular_name'     => __( 'Category', 'moarebasicp' ),
@@ -22,7 +23,7 @@ function moarebasicp_cat_xxx() {
   );
 
   $args = array(
-    'hierarchical'      => true, //change if you need a tags = not hierarchy)
+    'hierarchical'      => true, //change if you need a tags = not hierarchy
     'labels'            => $labels,
     'show_ui'           => true,
     'show_admin_column' => true,
@@ -31,6 +32,7 @@ function moarebasicp_cat_xxx() {
   );
 
   register_taxonomy( 'categoriescustom', array( 'mycustom' ), $args );
-}
-add_action( 'init', 'moarebasicp_cat_xxx', 0 );
 
+}
+
+add_action( 'init', 'moarebasicp_cat_xxx', 0 );

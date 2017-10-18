@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
 *
 * Google analytics
@@ -19,4 +19,5 @@ function moarebasicp_google_analytics(){?>
 </script>
 
 <?php }
+
 add_action( 'wp_head', 'moarebasicp_google_analytics', 10 );
