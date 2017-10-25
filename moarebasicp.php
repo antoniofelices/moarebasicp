@@ -63,7 +63,12 @@ class moarebasicp
 	{
 
         /**
-         *
+         * Al usar '$this->' para declarar una variable
+		 * sacas esta variable del scope de la function y la variable puede
+		 * ser usada fuera de esta function initialize()
+		 * Si se declara variable sin '$this->'
+		 * Primero: no usar palabra reservada var $settings… dara error
+		 * Segundo: variable funcionará, pero solo dentro de funcion initialize()
 		 *
 		 */
 		$this->settings = array(
@@ -88,6 +93,9 @@ class moarebasicp
 
     /**
      * Localization
+     * tanto ulrich como arabe dicen de usar init
+	 * Primero declaro donde buscarar los archivos .mo
+	 * Después en funcion setup_actions (mas abajo) los añado usando hook add_action (init)
 	 *
 	 * @since  0.1.0
 	 * @access public
@@ -110,36 +118,69 @@ class moarebasicp
 	}
 
 	/**
+	 * Function para hookear las anteriores load_textdomain / load_plugin_textdomain
+	 * Esta es la manera de hookear functions que se encuentran dentro de una class
+	 * Fijate como construye segundo parametro
+	 * Primero: es un Array
+	 * Segundo: usa $this para decir: es esta class. Tambien he visto usar __CLASS__ pero aparece como decreped. Es decir: add_action( 'init',  array( __CLASS__, 'load_textdomain' ) );
+	 * Tercero: pasa el nombre de la function
+	 * Intenté hacerlo primero instanciando la class y una vez instancia llamarlo como:  add_action( 'wp_head', $moarebasicp->function() );… da error
 	 *
-	 * Setup actions
-	 * 
 	 * @since  0.1.0
  	 * @access public
  	 * @return void
  	 */
-	function setup_actions()
+	public function setup_actions()
 	{
 
 		 add_action( 'init', array( $this, 'load_textdomain' ), 2 );
+		 add_action( 'init', array( $this, 'cpt' ), 2 );
+		 add_action( 'init', array( $this, 'tax' ), 2 );
+		 add_action( 'wp_head', array( $this, 'ga_code' ), 2 );
 
 	}
 
 	 /**
- 	  * Loads files needed by the plugin.
+ 	  * Loads file to create CPT.
  	  *
- 	  * @since  1.0.0
+ 	  * @since  0.1.0
  	  * @access public
  	  * @return void
  	  */
-	 function includes()
+	 public function cpt()
 	 {
 
- 		include_once( MOAREBASICP_PATH . 'includes/function-google-analytics.php');
- 		include_once( MOAREBASICP_PATH . 'includes/function-custom-post-types.php');
- 		include_once( MOAREBASICP_PATH . 'includes/function-custom-categories.php');
-		include_once( MOAREBASICP_PATH . 'includes/class-widget-facebook.php');
+ 		include_once( MOAREBASICP_PATH . 'includes/function-cpt.php');
+
 	 }
 
+	 /**
+ 	  * Loads file to create custom taxonomies.
+ 	  *
+ 	  * @since  0.1.0
+ 	  * @access public
+ 	  * @return void
+ 	  */
+	 public function tax()
+	 {
+
+ 		include_once( MOAREBASICP_PATH . 'includes/function-tax.php');
+
+	 }
+
+	 /**
+ 	  * Loads file to load google analytics.
+ 	  *
+ 	  * @since  0.1.0
+ 	  * @access public
+ 	  * @return void
+ 	  */
+	 public function ga_code()
+	 {
+
+ 		include_once( MOAREBASICP_PATH . 'includes/function-ga-code.php');
+
+	 }
 
 } /* End class moarebasicp */
 
@@ -155,7 +196,6 @@ function moarebasicp() {
 		$moarebasicp->initialize();
 		$moarebasicp->load_textdomain();
 		$moarebasicp->setup_actions();
-		$moarebasicp->includes();
 
 	}
 
