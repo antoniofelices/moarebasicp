@@ -1,24 +1,23 @@
 <?php
 /**
- * Widget and functions to Facebook timeline
+ * Widget Facebook timeline
  *
  * @package moarebasicp
- * @since 0.1.0
+ * @since 1.0.0
  *
  */
 
+if( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * Extends class WP_Widget.
  *
- * @since  0.1.0
+ * @since  1.0.0
  * @return void
  */
-class moare_facebook_widget extends WP_Widget
-{
+class moare_facebook_widget extends WP_Widget{
 
-	function __construct()
-	{
+	function __construct() {
 
 	 	$widget_ops = array(
 	 		'classname' => 'mb-facebook',
@@ -38,8 +37,7 @@ class moare_facebook_widget extends WP_Widget
 	 *
 	 * @param array $instance Saved values from database.
 	 */
-	public function form( $instance )
-	{
+	public function form( $instance ) {
 
 		$pagefacebook = ! empty( $instance['pagefacebook'] ) ? $instance['pagefacebook'] : esc_html__( 'facebook-page', 'moarebasicp' );
 
@@ -58,8 +56,7 @@ class moare_facebook_widget extends WP_Widget
 	 * @param array $args     Widget arguments.
 	 * @param array $instance Saved values from database.
 	 */
-	public function widget( $args, $instance )
-    {
+	public function widget( $args, $instance ) {
 
 		echo $args['before_widget'];
 
@@ -85,8 +82,7 @@ class moare_facebook_widget extends WP_Widget
 	 *
 	 * @return array Updated safe values to be saved.
 	 */
-	public function update( $new_instance, $old_instance )
-    {
+	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 
 		$instance['pagefacebook'] = ( ! empty( $new_instance['pagefacebook'] ) ) ? strip_tags( $new_instance['pagefacebook'] ) : '';
@@ -94,59 +90,4 @@ class moare_facebook_widget extends WP_Widget
 		return $instance;
 	}
 
-
 } // class Facebook widget
-
-
-/**
- * Adding some Javascript code to head
- *
- * @since  0.1.0
- * @return void
- */
-function moarebasicp_js_facebook(){
-	?>
-
-	<div id="fb-root"></div>
-
-	<script>
-
-	(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.10";
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
-
-	</script>
-
-	<?php
-}
-
-/**
- * Initialize class moare_facebook_widget
- *
- * @since  0.1.0
- * @return ¿?
- */
-function moarebasicp_fb_timeline(){
-
-	register_widget('moare_facebook_widget');
-
-}
-
-/**
- * Load functions to wp_head and widget_init
- *
- * @since  0.1.0
- * @return void
- */
-function moarebasicp_fb_setup(){
-
-   add_action( 'widgets_init', 'moarebasicp_fb_timeline', 10 );
-   add_action( 'wp_head', 'moarebasicp_js_facebook', 10 );
-
-}
-
-moarebasicp_fb_setup();
