@@ -21,12 +21,12 @@ class moare_loops_widget extends WP_Widget{
 
 	 	$widget_ops = array(
 	 		'classname' => 'mb-loops',
-	 		'description' => esc_html__( 'A Simple loops', 'moarebasicp' )
+	 		'description' => esc_html__( 'A Simple cpt queries', 'moarebasicp' )
 	 	);
 
 	 	parent::__construct(
 			'moarebasicp_loops',
-			esc_html__( 'Loop featured posts', 'moarebasicp' ),
+			esc_html__( 'Moare - Featured cpts', 'moarebasicp' ),
 			$widget_ops
 		);
 
@@ -47,32 +47,32 @@ class moare_loops_widget extends WP_Widget{
 		}
 
 		$cptname = $instance['cptname'];
+		$taxname = $instance['taxname'];
 		$taxid = $instance['taxid'];
 
 		$argsloop = array(
 			'post_type' => $cptname,
-			'posts_per_page' => 10
+			'posts_per_page' => 10,
+			'tax_query' => array(
+				array(
+					'taxonomy' => $taxname,
+					'terms' => $taxid,
+					'field' => 'term_id'
+				)
+			)
 		);
-
-		echo '<ul>';
 
 		$query_secondary = new WP_Query( $argsloop );
 
 		if( $query_secondary->have_posts() ):
 
 		    while( $query_secondary->have_posts() ): $query_secondary->the_post();
-				?>
 
-				<li>
-					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-				</li>
+				the_title( '<h4 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" itemprop="headline">', '</a></h4>' );
 
-				<?php
 		    endwhile;
 
 		endif;
-
-		echo '</ul>';
 
 		$query_secondary = null;
 		wp_reset_postdata();
@@ -91,6 +91,7 @@ class moare_loops_widget extends WP_Widget{
 
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'Title', 'moarebasicp' );
 		$cptname = ! empty( $instance['cptname'] ) ? $instance['cptname'] : esc_html__( 'CPT name', 'moarebasicp' );
+		$taxname = ! empty( $instance['taxname'] ) ? $instance['taxname'] : esc_html__( 'Tax name', 'moarebasicp' );
 		$taxid = ! empty( $instance['taxid'] ) ? $instance['taxid'] : esc_html__( 'Tax id', 'moarebasicp' );
 
 		?>
@@ -105,6 +106,12 @@ class moare_loops_widget extends WP_Widget{
 			<label for="<?php echo esc_attr( $this->get_field_id( 'cptname' ) ); ?>"><?php esc_attr_e( 'CPT name', 'moarebasicp' ); ?></label>
 			<br>
 			<input id="<?php echo esc_attr( $this->get_field_id( 'cptname' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'cptname' ) ); ?>" type="text" value="<?php echo esc_attr( $cptname ); ?>">
+		</p>
+
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'taxname' ) ); ?>"><?php esc_attr_e('Tax name', 'moarebasicp'); ?></label>
+			<br>
+			<input id="<?php echo esc_attr( $this->get_field_id( 'taxname' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'taxname' ) ); ?>" type="text" value="<?php echo esc_attr( $taxname ); ?>" />
 		</p>
 
 		<p>
@@ -130,6 +137,7 @@ class moare_loops_widget extends WP_Widget{
 		$instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
 		$instance['cptname'] = ( ! empty( $new_instance['cptname'] ) ) ? strip_tags( $new_instance['cptname'] ) : '';
+		$instance['taxname'] = ( ! empty( $new_instance['taxname'] ) ) ? strip_tags( $new_instance['taxname'] ) : '';
 		$instance['taxid'] = ( ! empty( $new_instance['taxid'] ) ) ? strip_tags( $new_instance['taxid'] ) : '';
 
 		return $instance;
