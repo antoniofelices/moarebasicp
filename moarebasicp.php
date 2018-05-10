@@ -93,8 +93,9 @@ class Moare_Basicp {
 		define( 'MOAREBASICP_PATH', $this->settings['path'] );
 
     // Load files.
-    require_once( MOAREBASICP_PATH . 'includes/class-widget-loops.php' );
-    require_once( MOAREBASICP_PATH . 'includes/class-widget-facebook.php'  );
+		require_once( MOAREBASICP_PATH . 'includes/class-widget-facebook.php'  );
+		require_once( MOAREBASICP_PATH . 'includes/class-widget-loops.php' );
+    require_once( MOAREBASICP_PATH . 'includes/class-widget-social-share.php'  );
 
 	}
 
@@ -136,9 +137,6 @@ class Moare_Basicp {
 		add_action( 'widgets_init', array( $this, 'moare_widgets' ), 10 );
 		add_action( 'wp_head', array( $this, 'ga_code' ), 10 );
 		add_action( 'wp_head', array( $this, 'fb_code' ), 20 );
-
-		// Filters
-		add_filter( 'the_content', array( $this, 'social_share' ), 2 );
 
 		// Remove actions, emojis
 		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
@@ -288,60 +286,9 @@ class Moare_Basicp {
 
 		register_widget( 'moare_facebook_widget' );
   	register_widget( 'moare_loops_widget' );
+		register_widget( 'moare_social_share_widget' );
 
   }
-
-	/**
-	 * Social Share
-	 *
-	 * Add social share icons.
-	 *
-	 * @since  1.0.0
-	 *
-	 * @return void
-	 */
-	public function social_share( $content ) {
-
-    if( is_singular() && !is_front_page() ){
-
-      $mb_url_params = array(
-        'url'   => get_the_permalink(),
-        'title' => get_the_title()
-      );
-
-      $sn_facebook = sprintf('<a href="https://facebook.com/sharer/sharer.php?u=%s">Facebook</a>',
-        esc_url( $mb_url_params['url'] )
-      );
-
-      $sn_twitter = sprintf('<a href="https://twitter.com/intent/tweet?url=%s">Twitter</a>',
-        esc_url( $mb_url_params['url'] )
-      );
-
-      $sn_googleplus = sprintf('<a href="https://plus.google.com/share?url=%s">Google+</a>',
-        esc_url( $mb_url_params['url'] )
-      );
-
-      $sn_linkedin = sprintf('<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=%s">Linkedin</a>',
-        esc_url( $mb_url_params['url'] )
-      );
-
-      // Add links
-      $content .= '<div class="social">';
-      $content .= $sn_facebook;
-      $content .= $sn_twitter;
-      $content .= $sn_googleplus;
-      $content .= $sn_linkedin;
-      $content .= '</div>';
-
-      return $content;
-
-    }else{
-
-      return $content;
-
-    }
-
-	}
 
 } /* End class moarebasicp */
 
