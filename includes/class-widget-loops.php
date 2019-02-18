@@ -89,7 +89,7 @@ class moare_loops_widget extends WP_Widget{
 
 		if( $query_secondary->have_posts() ):
 
-		    while( $query_secondary->have_posts() ): $query_secondary->the_post();
+			while( $query_secondary->have_posts() ): $query_secondary->the_post();
 
 				?>
 
@@ -121,9 +121,9 @@ class moare_loops_widget extends WP_Widget{
 
 					?>
 
-				  <div class="entry-content">
-				    <?php the_excerpt(); ?>
-				  </div>
+					<div class="entry-content">
+						<?php the_excerpt(); ?>
+					</div>
 
 					<?php
 
@@ -181,15 +181,15 @@ class moare_loops_widget extends WP_Widget{
 		</p>
 
 		<p>
-		  <label for="<?php echo esc_attr( $this->get_field_id( 'orderby' ) ); ?>"><?php esc_html_e( 'Order By', 'moarebasicp' ); ?>:</label>
-		  <select id="<?php echo esc_attr( $this->get_field_id( 'orderby' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'orderby' ) ); ?>">
-		    <option value="date" <?php selected( 'date', $orderby ); ?>><?php esc_html_e( 'Date Published', 'moarebasicp' ); ?></option>
-		    <option value="modified" <?php selected( 'modified', $orderby ); ?>><?php esc_html_e( 'Date Modified', 'moarebasicp' ); ?></option>
-		    <option value="title" <?php selected( 'title', $orderby ); ?>><?php esc_html_e( 'Title', 'moarebasicp' ); ?></option>
-		    <option value="parent" <?php selected( 'parent', $orderby ); ?>><?php esc_html_e( 'Parent', 'moarebasicp' ); ?></option>
-		    <option value="ID" <?php selected( 'ID', $orderby ); ?>><?php esc_html_e( 'ID', 'moarebasicp' ); ?></option>
-		    <option value="rand" <?php selected( 'rand', $orderby ); ?>><?php esc_html_e( 'Random', 'moarebasicp' ); ?></option>
-		  </select>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'orderby' ) ); ?>"><?php esc_html_e( 'Order By', 'moarebasicp' ); ?>:</label>
+			<select id="<?php echo esc_attr( $this->get_field_id( 'orderby' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'orderby' ) ); ?>">
+				<option value="date" <?php selected( 'date', $orderby ); ?>><?php esc_html_e( 'Date Published', 'moarebasicp' ); ?></option>
+				<option value="modified" <?php selected( 'modified', $orderby ); ?>><?php esc_html_e( 'Date Modified', 'moarebasicp' ); ?></option>
+				<option value="title" <?php selected( 'title', $orderby ); ?>><?php esc_html_e( 'Title', 'moarebasicp' ); ?></option>
+				<option value="parent" <?php selected( 'parent', $orderby ); ?>><?php esc_html_e( 'Parent', 'moarebasicp' ); ?></option>
+				<option value="ID" <?php selected( 'ID', $orderby ); ?>><?php esc_html_e( 'ID', 'moarebasicp' ); ?></option>
+				<option value="rand" <?php selected( 'rand', $orderby ); ?>><?php esc_html_e( 'Random', 'moarebasicp' ); ?></option>
+			</select>
 		</p>
 
 		<p>

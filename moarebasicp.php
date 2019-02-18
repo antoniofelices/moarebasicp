@@ -43,7 +43,7 @@ if( ! class_exists( 'Moare_Basicp' ) ) :
 class Moare_Basicp {
 
 	/**
-   * Version.
+	 * Version.
 	 *
 	 * @since 1.0.0
 	 * @var string The plugin version number.
@@ -61,15 +61,15 @@ class Moare_Basicp {
 	 */
 	public function __construct() {}
 
-  /**
-   * Initialize.
-   *
-   * The real constructor.
-   *
-   * @since 1.0.0
-   *
-   * @return void
-   */
+	/**
+	 * Initialize.
+	 *
+	 * The real constructor.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
 	public function initialize() {
 
 		// Vars
@@ -79,11 +79,11 @@ class Moare_Basicp {
 			'name'     => __( 'Moare Basic P', 'moarebasicp' ),
 			'version'  => $this->version,
 
-      // Urls
-      'file'      => __FILE__,
-      'basename'  => trailingslashit( plugin_basename( __FILE__ ) ),
-      'path'      => trailingslashit( plugin_dir_path( __FILE__ ) ),
-      'dir'       => trailingslashit( plugin_dir_url( __FILE__ ) ),
+			// Urls
+			'file'      => __FILE__,
+			'basename'  => trailingslashit( plugin_basename( __FILE__ ) ),
+			'path'      => trailingslashit( plugin_dir_path( __FILE__ ) ),
+			'dir'       => trailingslashit( plugin_dir_url( __FILE__ ) ),
 
 		);
 
@@ -92,20 +92,20 @@ class Moare_Basicp {
 		define( 'MOAREBASICP_VERSION', $this->settings['version'] );
 		define( 'MOAREBASICP_PATH', $this->settings['path'] );
 
-    // Load files.
+		// Load files.
 		include_once( MOAREBASICP_PATH . 'includes/class-widget-facebook.php'  );
 		include_once( MOAREBASICP_PATH . 'includes/class-widget-loops.php' );
-    include_once( MOAREBASICP_PATH . 'includes/class-widget-social-share.php'  );
+		include_once( MOAREBASICP_PATH . 'includes/class-widget-social-share.php'  );
 
 	}
 
-  /**
-   * Localization.
-   *
-   * @since  1.0.0
-   * @access public
-   * @return void
-   */
+	/**
+	 * Localization.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
 	public function load_textdomain() {
 
 		// Vars
@@ -126,8 +126,8 @@ class Moare_Basicp {
 	 *
 	 * @since  1.0.0
 	 * @access public
- 	 * @return void
- 	 */
+	 * @return void
+	 */
 	public function setup_actions() {
 
 		// Actions.
@@ -140,21 +140,21 @@ class Moare_Basicp {
 
 		// Remove links header.
 		remove_action( 'wp_head', 'wp_generator' );
-    remove_action( 'wp_head', 'rsd_link' );
-    remove_action( 'wp_head', 'wlwmanifest_link' );
-    remove_action( 'wp_head', 'start_post_rel_link' );
-    remove_action( 'wp_head', 'index_rel_link' );
-    remove_action( 'wp_head', 'wp_shortlink_wp_head' );
-    remove_action( 'wp_head', 'adjacent_posts_rel_link' );
-    remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
-    remove_action( 'wp_head', 'parent_post_rel_link' );
-    remove_action( 'wp_head', 'feed_links', 2 );
-    remove_action( 'wp_head', 'feed_links_extra', 3 );
-    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-    remove_action( 'wp_print_styles', 'print_emoji_styles' );
-    remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-    remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-    remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+		remove_action( 'wp_head', 'rsd_link' );
+		remove_action( 'wp_head', 'wlwmanifest_link' );
+		remove_action( 'wp_head', 'start_post_rel_link' );
+		remove_action( 'wp_head', 'index_rel_link' );
+		remove_action( 'wp_head', 'wp_shortlink_wp_head' );
+		remove_action( 'wp_head', 'adjacent_posts_rel_link' );
+		remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+		remove_action( 'wp_head', 'parent_post_rel_link' );
+		remove_action( 'wp_head', 'feed_links', 2 );
+		remove_action( 'wp_head', 'feed_links_extra', 3 );
+		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+		remove_action( 'wp_print_styles', 'print_emoji_styles' );
+		remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+		remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+		remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
 
 		// Remove emojis admin.
 		remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
@@ -173,36 +173,36 @@ class Moare_Basicp {
 	 */
 	public function cpt() {
 
-    $labels = array(
-    	'name'               => _x( 'Mycustoms', 'post type general name', 'moarebasicp' ),
-    	'singular_name'      => _x( 'Mycustom', 'post type singular name', 'moarebasicp' ),
+		$labels = array(
+			'name'               => _x( 'Mycustoms', 'post type general name', 'moarebasicp' ),
+			'singular_name'      => _x( 'Mycustom', 'post type singular name', 'moarebasicp' ),
 			'menu_name'          => _x( 'Mycustoms', 'admin menu', 'moarebasicp' ),
 			'name_admin_bar'     => _x( 'Mycustom', 'add new on admin bar', 'moarebasicp' ),
-    	'add_new'            => _x( 'Add new', 'mycustom' , 'moarebasicp' ),
-    	'add_new_item'       => __( 'Add new mycustom', 'moarebasicp' ),
-    	'new_item'           => __( 'New mycustom', 'moarebasicp' ),
+			'add_new'            => _x( 'Add new', 'mycustom' , 'moarebasicp' ),
+			'add_new_item'       => __( 'Add new mycustom', 'moarebasicp' ),
+			'new_item'           => __( 'New mycustom', 'moarebasicp' ),
 			'edit_item'          => __( 'Edit mycustom', 'moarebasicp' ),
 			'view_item'          => __( 'See mycustom', 'moarebasicp' ),
-    	'all_items'          => __( 'All mycustom', 'moarebasicp' ),
-    	'search_items'       => __( 'Search mycustom', 'moarebasicp' ),
-    	'not_found'          => __( 'Not found mycustom', 'moarebasicp' ),
-    	'not_found_in_trash' => __( 'Not found mycustom in trash', 'moarebasicp' )
-    );
+			'all_items'          => __( 'All mycustom', 'moarebasicp' ),
+			'search_items'       => __( 'Search mycustom', 'moarebasicp' ),
+			'not_found'          => __( 'Not found mycustom', 'moarebasicp' ),
+			'not_found_in_trash' => __( 'Not found mycustom in trash', 'moarebasicp' )
+		);
 
-    $args = array(
-    	'labels'          => $labels,
-    	'description'     => __( 'My custom post type', 'moarebasicp' ),
-    	'public'          => true,
-    	'menu_position'   => 15,
+		$args = array(
+			'labels'          => $labels,
+			'description'     => __( 'My custom post type', 'moarebasicp' ),
+			'public'          => true,
+			'menu_position'   => 15,
 			'menu_icon'       => 'dashicons-carrot',
-    	'supports'        => array( 'title', 'author', 'thumbnail', 'editor', 'excerpt', 'comments', 'revisions' ),
-    	'has_archive'     => true,
-    	'rewrite' 	  	  => array('slug' => 'mycustom'),
+			'supports'        => array( 'title', 'author', 'thumbnail', 'editor', 'excerpt', 'comments', 'revisions' ),
+			'has_archive'     => true,
+			'rewrite' 	  	  => array('slug' => 'mycustom'),
 			'capability_type' => 'post',
 			'show_in_rest'    => true
-    );
+		);
 
-    register_post_type( 'mycustom', $args );
+		register_post_type( 'mycustom', $args );
 
 	}
 
@@ -217,31 +217,31 @@ class Moare_Basicp {
 	 */
 	public function tax() {
 
-	  $labels = array(
-	    'name'              => _x( 'Taxonomies', 'taxonomy general name', 'moarebasicp' ),
-	    'singular_name'     => _x( 'Taxonomy', 'taxonomy singular name', 'moarebasicp' ),
-	    'search_items'      => __( 'Search taxonomy', 'moarebasicp' ),
-	    'all_items'         => __( 'All taxonomies', 'moarebasicp' ),
-	    'parent_item'       => __( 'Parent taxonomy', 'moarebasicp' ),
-	    'parent_item_colon' => __( 'Parent taxonomy:', 'moarebasicp' ),
-	    'edit_item'         => __( 'Edit taxonomy', 'moarebasicp' ),
-	    'update_item'       => __( 'Update taxonomy', 'moarebasicp' ),
-	    'add_new_item'      => __( 'Add new taxonomy', 'moarebasicp' ),
-	    'new_item_name'     => __( 'New taxonomy', 'moarebasicp' ),
-	    'menu_name'         => __( 'Taxonomy', 'moarebasicp' ),
-	  );
+		$labels = array(
+			'name'              => _x( 'Taxonomies', 'taxonomy general name', 'moarebasicp' ),
+			'singular_name'     => _x( 'Taxonomy', 'taxonomy singular name', 'moarebasicp' ),
+			'search_items'      => __( 'Search taxonomy', 'moarebasicp' ),
+			'all_items'         => __( 'All taxonomies', 'moarebasicp' ),
+			'parent_item'       => __( 'Parent taxonomy', 'moarebasicp' ),
+			'parent_item_colon' => __( 'Parent taxonomy:', 'moarebasicp' ),
+			'edit_item'         => __( 'Edit taxonomy', 'moarebasicp' ),
+			'update_item'       => __( 'Update taxonomy', 'moarebasicp' ),
+			'add_new_item'      => __( 'Add new taxonomy', 'moarebasicp' ),
+			'new_item_name'     => __( 'New taxonomy', 'moarebasicp' ),
+			'menu_name'         => __( 'Taxonomy', 'moarebasicp' ),
+		);
 
-    $args = array(
-      'hierarchical'      => true, //hierarchy
-      'labels'            => $labels,
-      'show_ui'           => true,
-      'show_admin_column' => true,
-      'query_var'         => true,
-      'rewrite'           => array( 'slug' => 'custom-tax' ),
+		$args = array(
+			'hierarchical'      => true, //hierarchy
+			'labels'            => $labels,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'query_var'         => true,
+			'rewrite'           => array( 'slug' => 'custom-tax' ),
 			'show_in_rest'      => true
-    );
+		);
 
-    register_taxonomy( 'customtax', array( 'mycustom' ), $args );
+		register_taxonomy( 'customtax', array( 'mycustom' ), $args );
 
 	}
 
@@ -254,19 +254,16 @@ class Moare_Basicp {
 	 */
 	public function ga_code() {
 
-    ?>
+		?>
 
-		<!-- Google Analytics Universal Analytics -->
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-XXXXXXXX-X', 'auto');
-    ga('send', 'pageview');
-    </script>
+		<!-- Google Analytics Universal Analytics. -->
+		<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-XXXXXXXX-X', 'auto');
+		ga('send', 'pageview');
+		</script>
 
-    <?php
+		<?php
 
 	}
 
@@ -279,9 +276,9 @@ class Moare_Basicp {
 	 */
 	public function fb_code() {
 
-    ?>
+		?>
 
-		<!-- Facebook. Sometimes need to add id="fb-root" after the opening body tag -->
+		<!-- Facebook. -->
 		<script>
 		(function(d, s, id) {
 			var js, fjs = d.getElementsByTagName(s)[0];
@@ -297,18 +294,18 @@ class Moare_Basicp {
 	}
 
 	/**
-   * Initialize widgets.
-   *
-   * @since  1.0.0
-   * @return ¿?
-   */
-  public function moare_widgets() {
+	 * Initialize widgets.
+	 *
+	 * @since  1.0.0
+	 * @return ¿?
+	 */
+	public function moare_widgets() {
 
 		register_widget( 'moare_facebook_widget' );
 		register_widget( 'moare_loops_widget' );
 		register_widget( 'moare_social_share_widget' );
 
-  }
+	}
 
 } /* End class moarebasicp */
 

@@ -19,12 +19,12 @@ class moare_facebook_widget extends WP_Widget{
 
 	function __construct() {
 
-	 	$widget_ops = array(
-	 		'classname' => 'mb-facebook',
-	 		'description' => esc_html__( 'A Simple timeline de Facebook', 'moarebasicp' )
-	 	);
+		$widget_ops = array(
+			'classname' => 'mb-facebook',
+			'description' => esc_html__( 'A Simple timeline de Facebook', 'moarebasicp' )
+		);
 
-	 	parent::__construct(
+		parent::__construct(
 			'moarebasicp_facebook',
 			esc_html__( 'Timeline Facebook', 'moarebasicp' ),
 			$widget_ops
