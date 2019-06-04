@@ -81,9 +81,9 @@ class Moare_Basicp {
 
 			// Urls
 			'file'      => __FILE__,
-			'basename'  => trailingslashit( plugin_basename( __FILE__ ) ),
-			'path'      => trailingslashit( plugin_dir_path( __FILE__ ) ),
-			'dir'       => trailingslashit( plugin_dir_url( __FILE__ ) ),
+			'basename'  => plugin_basename( __FILE__ ),
+			'path'      => plugin_dir_path( __FILE__ ),
+			'dir'       => plugin_dir_url( __FILE__ ),
 
 		);
 
