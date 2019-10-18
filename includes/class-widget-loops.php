@@ -15,18 +15,18 @@ if( ! defined( 'ABSPATH' ) ) exit;
  * @since  1.0.0
  * @return void
  */
-class moare_loops_widget extends WP_Widget{
+class Moare_Widget_Loops extends WP_Widget{
 
 	function __construct() {
 
-	 	$widget_ops = array(
-	 		'classname' => 'mb-featured-content',
-	 		'description' => esc_html__( 'A Simple cpt queries, similar featured post genesis', 'moarebasicp' )
-	 	);
+		$widget_ops = array(
+			'classname'			=> 'mb-featured-content',
+			'description'		=> esc_html__( 'A Simple cpt queries, similar featured post genesis', 'moarebasicp' )
+		);
 
-	 	parent::__construct(
+		parent::__construct(
 			'moarebasicp_featured_content',
-			esc_html__( 'Moare - Featured cpts', 'moarebasicp' ),
+			esc_html__( 'Moare - Featured CPTs', 'moarebasicp' ),
 			$widget_ops
 		);
 
@@ -60,29 +60,39 @@ class moare_loops_widget extends WP_Widget{
 
 		if ( $cptname && $taxname && $taxid ) {
 			$argsloop = array(
-				'post_type' => $cptname,
-				'posts_per_page' => $posts_num,
-				'orderby'  => $orderby,
-				'order' => $order,
-				'post__not_in' => array( $postid ),
-				'tax_query' => array(
+				'post_type'				=> $cptname,
+				'posts_per_page'	=> $posts_num,
+				'orderby'					=> $orderby,
+				'order'						=> $order,
+				'post__not_in'		=> array( $postid ),
+				'tax_query'				=> array(
 					array(
-						'taxonomy' => $taxname,
-						'terms' => $taxid,
-						'field' => 'term_id'
+						'taxonomy'		=> $taxname,
+						'terms'				=> $taxid,
+						'field'				=> 'term_id'
 					)
 				)
 			);
 		} else if( $cptname && !$taxname && !$taxid ) {
 			$argsloop = array(
-				'post_type' => $cptname,
-				'posts_per_page' => $posts_num,
-				'orderby'  => $orderby,
-				'order' => $order,
-				'post__not_in' => array( $postid )
+				'post_type'				=> $cptname,
+				'posts_per_page'	=> $posts_num,
+				'orderby'					=> $orderby,
+				'order'						=> $order,
+				'post__not_in'		=> array( $postid )
 			);
 		} else {
 			return;
+		}
+
+		if ( $show_image ) {
+
+			echo '<div class="container-grid">';
+
+		} else {
+
+			echo '<div class="container">';
+
 		}
 
 		$query_secondary = new WP_Query( $argsloop );
@@ -101,7 +111,9 @@ class moare_loops_widget extends WP_Widget{
 
 					?>
 
-					<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_post_thumbnail( 'medium' ); ?></a>
+					<div class="bg-img entry-image-link">
+						<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_post_thumbnail( 'medium' ); ?></a>
+					</div>
 
 					<?php
 
@@ -112,6 +124,9 @@ class moare_loops_widget extends WP_Widget{
 
 					<header class="entry-header">
 						<?php the_title( '<h4 class="entry-title" itemprop="headline"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' ); ?>
+						<?php if ( ! $show_image ) : ?>
+							<p class="entry-meta"><time class="entry-time" itemprop="datePublished"><?php echo get_the_date( "d\/m\/y" ); ?></time></p>
+						<?php endif; ?>
 					</header>
 
 					<?php
@@ -148,7 +163,6 @@ class moare_loops_widget extends WP_Widget{
 
 	/**
 	 * Back-end widget form.
-	 *
 	 *
 	 * @param array $instance Previously saved values from database.
 	 */
@@ -240,7 +254,6 @@ class moare_loops_widget extends WP_Widget{
 
 	/**
 	 * Sanitize widget form values as they are saved.
-	 *
 	 *
 	 * @param array $new_instance Values just sent to be saved.
 	 * @param array $old_instance Previously saved values from database.

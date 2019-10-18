@@ -1,6 +1,6 @@
 <?php
 /**
- * Widget Social Share.
+ * Widget social share.
  *
  * @package moarebasicp
  * @since 1.0.0
@@ -15,13 +15,13 @@ if( ! defined( 'ABSPATH' ) ) exit;
  * @since  1.0.0
  * @return void
  */
-class moare_social_share_widget extends WP_Widget{
+class Moare_Widget_Social_Share extends WP_Widget{
 
 	function __construct() {
 
 		$widget_ops = array(
-			'classname' => 'mb-social-share',
-			'description' => esc_html__( 'A Simple Social Share buttons', 'moarebasicp' )
+			'classname'			=> 'mb-social-share',
+			'description'		=> esc_html__( 'A Simple Social Share buttons', 'moarebasicp' )
 		);
 
 		parent::__construct(

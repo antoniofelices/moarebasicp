@@ -1,6 +1,6 @@
 <?php
 /**
- * Widget Facebook timeline
+ * Widget Facebook timeline.
  *
  * @package moarebasicp
  * @since 1.0.0
@@ -15,18 +15,18 @@ if( ! defined( 'ABSPATH' ) ) exit;
  * @since  1.0.0
  * @return void
  */
-class moare_facebook_widget extends WP_Widget{
+class Moare_Widget_Facebook extends WP_Widget{
 
 	function __construct() {
 
 		$widget_ops = array(
-			'classname' => 'mb-facebook',
-			'description' => esc_html__( 'A Simple timeline de Facebook', 'moarebasicp' )
+			'classname'			=> 'mb-facebook',
+			'description'		=> esc_html__( 'A Simple timeline de Facebook', 'moarebasicp' )
 		);
 
 		parent::__construct(
 			'moarebasicp_facebook',
-			esc_html__( 'Timeline Facebook', 'moarebasicp' ),
+			esc_html__( 'Moare - Timeline Facebook', 'moarebasicp' ),
 			$widget_ops
 		);
 

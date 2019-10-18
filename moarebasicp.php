@@ -51,39 +51,33 @@ class Moare_Basicp {
 	public $version = '1.0.0';
 
 	/**
-	 * Constructor.
-	 *
-	 * Empty, to prevent a new instance of the object.
+	 * Constructor. Empty, to prevent a new instance of the object.
 	 *
 	 * @since 1.0.0
-	 *
 	 * @return void
 	 */
 	public function __construct() {}
 
 	/**
-	 * Initialize.
-	 *
-	 * The real constructor.
+	 * Initialize. The real constructor.
 	 *
 	 * @since 1.0.0
-	 *
 	 * @return void
 	 */
 	public function initialize() {
 
-		// Vars
+		// Vars.
 		$this->settings = array(
 
 			// Basic.
-			'name'     => __( 'Moare Basic P', 'moarebasicp' ),
-			'version'  => $this->version,
+			'name'			=> __( 'Moare Basic P', 'moarebasicp' ),
+			'version'		=> $this->version,
 
 			// Urls.
-			'file'      => __FILE__,
-			'basename'  => plugin_basename( __FILE__ ),
-			'path'      => plugin_dir_path( __FILE__ ),
-			'dir'       => plugin_dir_url( __FILE__ ),
+			'file'			=> __FILE__,
+			'basename'	=> plugin_basename( __FILE__ ),
+			'path'			=> plugin_dir_path( __FILE__ ),
+			'dir'				=> plugin_dir_url( __FILE__ ),
 
 		);
 
@@ -132,10 +126,10 @@ class Moare_Basicp {
 
 		// Actions.
 		add_action( 'init', array( $this, 'load_textdomain' ), 2 );
-		add_action( 'init', array( $this, 'cpt' ), 10 );
-		add_action( 'init', array( $this, 'tax' ), 10 );
+		add_action( 'init', array( $this, 'register_cpt' ), 10 );
+		add_action( 'init', array( $this, 'register_tax' ), 10 );
 		add_action( 'init', array( $this, 'hard_crop_images' ) );
-		add_action( 'widgets_init', array( $this, 'moare_widgets' ), 10 );
+		add_action( 'widgets_init', array( $this, 'register_widgets' ), 10 );
 		add_action( 'wp_head', array( $this, 'ga_code' ), 10 );
 		add_action( 'wp_head', array( $this, 'fb_code' ), 20 );
 
@@ -164,15 +158,13 @@ class Moare_Basicp {
 	}
 
 	/**
-	 * CPT
-	 *
-	 * Create CPT.
+	 * CPT. Create Custom Post Types.
 	 *
 	 * @since  1.0.0
-	 *
+	 * @access public
 	 * @return void
 	 */
-	public function cpt() {
+	public function register_cpt() {
 
 		// Name.
 		$labels = array(
@@ -210,15 +202,13 @@ class Moare_Basicp {
 	}
 
 	/**
-	 * Tax
-	 *
-	 * Create custom taxonomies.
+	 * Tax. Create custom taxonomies.
 	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return void
 	 */
-	public function tax() {
+	public function register_tax() {
 
 		// Name.
 		$labels = array(
@@ -253,7 +243,7 @@ class Moare_Basicp {
 	 * Code google analytics.
 	 *
 	 * @since  1.0.0
-	 *
+	 * @access public
 	 * @return void
 	 */
 	public function ga_code() {
@@ -275,7 +265,7 @@ class Moare_Basicp {
 	 * Code Facebook timeline.
 	 *
 	 * @since  1.0.0
-	 *
+	 * @access public
 	 * @return void
 	 */
 	public function fb_code() {
@@ -314,13 +304,14 @@ class Moare_Basicp {
 	 * Initialize widgets.
 	 *
 	 * @since  1.0.0
+	 * @access public
 	 * @return void
 	 */
-	public function moare_widgets() {
+	public function register_widgets() {
 
-		register_widget( 'moare_facebook_widget' );
-		register_widget( 'moare_loops_widget' );
-		register_widget( 'moare_social_share_widget' );
+		register_widget( 'Moare_Widget_Facebook' );
+		register_widget( 'Moare_Widget_Loops' );
+		register_widget( 'Moare_Widget_Social_Share' );
 
 	}
 
@@ -332,7 +323,6 @@ class Moare_Basicp {
  * The main function responsible for returning the moarebasicp Instance to functions everywhere.
  *
  * @since 1.0.0
- *
  * @return object
  */
 function moarebasicp() {
@@ -352,7 +342,7 @@ function moarebasicp() {
 
 }
 
-// Initialize
+// Initialize.
 moarebasicp();
 
 endif; // class_exists check
