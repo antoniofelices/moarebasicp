@@ -79,7 +79,7 @@ class Moare_Basicp {
 			'name'     => __( 'Moare Basic P', 'moarebasicp' ),
 			'version'  => $this->version,
 
-			// Urls
+			// Urls.
 			'file'      => __FILE__,
 			'basename'  => plugin_basename( __FILE__ ),
 			'path'      => plugin_dir_path( __FILE__ ),
@@ -108,15 +108,15 @@ class Moare_Basicp {
 	 */
 	public function load_textdomain() {
 
-		// Vars
+		// Vars.
 		$domain = 'moarebasicp';
 		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 		$mofile = $domain . '-' . $locale . '.mo';
 
-		// Load from the languages directory first
+		// Load from the languages directory first.
 		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . '/plugins/' . $mofile );
 
-		// Load from plugin language folder
+		// Load from plugin language folder.
 		load_plugin_textdomain( $domain, FALSE, trailingslashit( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/' . $mofile );
 
 	}
@@ -134,6 +134,7 @@ class Moare_Basicp {
 		add_action( 'init', array( $this, 'load_textdomain' ), 2 );
 		add_action( 'init', array( $this, 'cpt' ), 10 );
 		add_action( 'init', array( $this, 'tax' ), 10 );
+		add_action( 'init', array( $this, 'hard_crop_images' ) );
 		add_action( 'widgets_init', array( $this, 'moare_widgets' ), 10 );
 		add_action( 'wp_head', array( $this, 'ga_code' ), 10 );
 		add_action( 'wp_head', array( $this, 'fb_code' ), 20 );
@@ -173,33 +174,35 @@ class Moare_Basicp {
 	 */
 	public function cpt() {
 
+		// Name.
 		$labels = array(
-			'name'               => _x( 'Mycustoms', 'post type general name', 'moarebasicp' ),
-			'singular_name'      => _x( 'Mycustom', 'post type singular name', 'moarebasicp' ),
-			'menu_name'          => _x( 'Mycustoms', 'admin menu', 'moarebasicp' ),
-			'name_admin_bar'     => _x( 'Mycustom', 'add new on admin bar', 'moarebasicp' ),
-			'add_new'            => _x( 'Add new', 'mycustom' , 'moarebasicp' ),
-			'add_new_item'       => __( 'Add new mycustom', 'moarebasicp' ),
-			'new_item'           => __( 'New mycustom', 'moarebasicp' ),
-			'edit_item'          => __( 'Edit mycustom', 'moarebasicp' ),
-			'view_item'          => __( 'See mycustom', 'moarebasicp' ),
-			'all_items'          => __( 'All mycustom', 'moarebasicp' ),
-			'search_items'       => __( 'Search mycustom', 'moarebasicp' ),
-			'not_found'          => __( 'Not found mycustom', 'moarebasicp' ),
-			'not_found_in_trash' => __( 'Not found mycustom in trash', 'moarebasicp' )
+			'name'								=> _x( 'Mycustoms', 'post type general name', 'moarebasicp' ),
+			'singular_name'				=> _x( 'Mycustom', 'post type singular name', 'moarebasicp' ),
+			'menu_name'						=> _x( 'Mycustoms', 'admin menu', 'moarebasicp' ),
+			'name_admin_bar'			=> _x( 'Mycustom', 'add new on admin bar', 'moarebasicp' ),
+			'add_new'							=> _x( 'Add new', 'mycustom' , 'moarebasicp' ),
+			'add_new_item'				=> __( 'Add new mycustom', 'moarebasicp' ),
+			'new_item'						=> __( 'New mycustom', 'moarebasicp' ),
+			'edit_item'						=> __( 'Edit mycustom', 'moarebasicp' ),
+			'view_item'						=> __( 'See mycustom', 'moarebasicp' ),
+			'all_items'						=> __( 'All mycustom', 'moarebasicp' ),
+			'search_items'				=> __( 'Search mycustom', 'moarebasicp' ),
+			'not_found'						=> __( 'Not found mycustom', 'moarebasicp' ),
+			'not_found_in_trash'	=> __( 'Not found mycustom in trash', 'moarebasicp' )
 		);
 
 		$args = array(
-			'labels'          => $labels,
-			'description'     => __( 'My custom post type', 'moarebasicp' ),
-			'public'          => true,
-			'menu_position'   => 15,
-			'menu_icon'       => 'dashicons-carrot',
-			'supports'        => array( 'title', 'author', 'thumbnail', 'editor', 'excerpt', 'comments', 'revisions' ),
-			'has_archive'     => true,
-			'rewrite' 	  	  => array('slug' => 'mycustom'),
-			'capability_type' => 'post',
-			'show_in_rest'    => true
+			'labels'					=> $labels,
+			'description'			=> __( 'My custom post type', 'moarebasicp' ),
+			'public'					=> true,
+			'menu_position'		=> 15,
+			'menu_icon'				=> 'dashicons-carrot',
+			'supports'				=> array( 'title', 'author', 'thumbnail', 'editor', 'excerpt', 'comments', 'revisions' ),
+			'has_archive'			=> true,
+			'rewrite'					=> array('slug' => 'mycustom'),
+			'capability_type'	=> 'post',
+			'show_in_rest'		=> true,
+			'taxonomies'			=> array(''),
 		);
 
 		register_post_type( 'mycustom', $args );
@@ -217,28 +220,29 @@ class Moare_Basicp {
 	 */
 	public function tax() {
 
+		// Name.
 		$labels = array(
-			'name'              => _x( 'Taxonomies', 'taxonomy general name', 'moarebasicp' ),
-			'singular_name'     => _x( 'Taxonomy', 'taxonomy singular name', 'moarebasicp' ),
-			'search_items'      => __( 'Search taxonomy', 'moarebasicp' ),
-			'all_items'         => __( 'All taxonomies', 'moarebasicp' ),
-			'parent_item'       => __( 'Parent taxonomy', 'moarebasicp' ),
-			'parent_item_colon' => __( 'Parent taxonomy:', 'moarebasicp' ),
-			'edit_item'         => __( 'Edit taxonomy', 'moarebasicp' ),
-			'update_item'       => __( 'Update taxonomy', 'moarebasicp' ),
-			'add_new_item'      => __( 'Add new taxonomy', 'moarebasicp' ),
-			'new_item_name'     => __( 'New taxonomy', 'moarebasicp' ),
-			'menu_name'         => __( 'Taxonomy', 'moarebasicp' ),
+			'name'							=> _x( 'Taxonomies', 'taxonomy general name', 'moarebasicp' ),
+			'singular_name'			=> _x( 'Taxonomy', 'taxonomy singular name', 'moarebasicp' ),
+			'search_items'			=> __( 'Search taxonomy', 'moarebasicp' ),
+			'all_items'					=> __( 'All taxonomies', 'moarebasicp' ),
+			'parent_item'				=> __( 'Parent taxonomy', 'moarebasicp' ),
+			'parent_item_colon'	=> __( 'Parent taxonomy:', 'moarebasicp' ),
+			'edit_item'					=> __( 'Edit taxonomy', 'moarebasicp' ),
+			'update_item'				=> __( 'Update taxonomy', 'moarebasicp' ),
+			'add_new_item'			=> __( 'Add new taxonomy', 'moarebasicp' ),
+			'new_item_name'			=> __( 'New taxonomy', 'moarebasicp' ),
+			'menu_name'					=> __( 'Taxonomy', 'moarebasicp' ),
 		);
 
 		$args = array(
-			'hierarchical'      => true, //hierarchy
-			'labels'            => $labels,
-			'show_ui'           => true,
-			'show_admin_column' => true,
-			'query_var'         => true,
-			'rewrite'           => array( 'slug' => 'custom-tax' ),
-			'show_in_rest'      => true
+			'hierarchical'			=> true, //hierarchy
+			'labels'						=> $labels,
+			'show_ui'						=> true,
+			'show_admin_column'	=> true,
+			'query_var'					=> true,
+			'rewrite'						=> array( 'slug' => 'custom-tax' ),
+			'show_in_rest'			=> true
 		);
 
 		register_taxonomy( 'customtax', array( 'mycustom' ), $args );
@@ -294,10 +298,23 @@ class Moare_Basicp {
 	}
 
 	/**
+	 * Hard Crop size images.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function hard_crop_images(){
+
+		add_image_size( 'medium', get_option( 'medium_size_w' ), get_option( 'medium_size_h' ), true );
+
+	}
+
+	/**
 	 * Initialize widgets.
 	 *
 	 * @since  1.0.0
-	 * @return ¿?
+	 * @return void
 	 */
 	public function moare_widgets() {
 
