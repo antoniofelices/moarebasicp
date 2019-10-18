@@ -20,12 +20,12 @@ class moare_loops_widget extends WP_Widget{
 	function __construct() {
 
 	 	$widget_ops = array(
-	 		'classname' => 'mb-loops',
+	 		'classname' => 'mb-featured-content',
 	 		'description' => esc_html__( 'A Simple cpt queries, similar featured post genesis', 'moarebasicp' )
 	 	);
 
 	 	parent::__construct(
-			'moarebasicp_loops',
+			'moarebasicp_featured_content',
 			esc_html__( 'Moare - Featured cpts', 'moarebasicp' ),
 			$widget_ops
 		);
