@@ -3,7 +3,7 @@
  *
  * Plugin Name: Moare basic functions
  * Plugin URI: http://studiomoare.com
- * Description: Some functions Studio Moare use to create a websites.
+ * Description: Some functions Studio Moare use to create a websites. Basically: custom post types, custom taxonomies, widgets and google analytics.
  * Version: 1.0.0
  * Author: Antonio
  * Author URI: http://studiomoare.com
