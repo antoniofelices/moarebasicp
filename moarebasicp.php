@@ -212,27 +212,38 @@ class Moare_Basicp {
 
 		// Name.
 		$labels = array(
-			'name'							=> _x( 'Taxonomies', 'taxonomy general name', 'moarebasicp' ),
-			'singular_name'			=> _x( 'Taxonomy', 'taxonomy singular name', 'moarebasicp' ),
-			'search_items'			=> __( 'Search taxonomy', 'moarebasicp' ),
-			'all_items'					=> __( 'All taxonomies', 'moarebasicp' ),
-			'parent_item'				=> __( 'Parent taxonomy', 'moarebasicp' ),
-			'parent_item_colon'	=> __( 'Parent taxonomy:', 'moarebasicp' ),
-			'edit_item'					=> __( 'Edit taxonomy', 'moarebasicp' ),
-			'update_item'				=> __( 'Update taxonomy', 'moarebasicp' ),
-			'add_new_item'			=> __( 'Add new taxonomy', 'moarebasicp' ),
-			'new_item_name'			=> __( 'New taxonomy', 'moarebasicp' ),
-			'menu_name'					=> __( 'Taxonomy', 'moarebasicp' ),
+			'name'												=> _x( 'Taxonomies', 'Taxonomy General Name', 'moarebasicp' ),
+			'singular_name'								=> _x( 'Taxonomy', 'Taxonomy Singular Name', 'moarebasicp' ),
+			'menu_name'										=> __( 'Taxonomy', 'moarebasicp' ),
+			'all_items'										=> __( 'All Items', 'moarebasicp' ),
+			'parent_item'									=> __( 'Parent Item', 'moarebasicp' ),
+			'parent_item_colon'						=> __( 'Parent Item:', 'moarebasicp' ),
+			'new_item_name'								=> __( 'New Item Name', 'moarebasicp' ),
+			'add_new_item'								=> __( 'Add New Item', 'moarebasicp' ),
+			'edit_item'										=> __( 'Edit Item', 'moarebasicp' ),
+			'update_item'									=> __( 'Update Item', 'moarebasicp' ),
+			'view_item'										=> __( 'View Item', 'moarebasicp' ),
+			'separate_items_with_commas'	=> __( 'Separate items with commas', 'moarebasicp' ),
+			'add_or_remove_items'					=> __( 'Add or remove items', 'moarebasicp' ),
+			'choose_from_most_used'				=> __( 'Choose from the most used', 'moarebasicp' ),
+			'popular_items'								=> __( 'Popular Items', 'moarebasicp' ),
+			'search_items'								=> __( 'Search Items', 'moarebasicp' ),
+			'not_found'										=> __( 'Not Found', 'moarebasicp' ),
+			'no_terms'										=> __( 'No items', 'moarebasicp' ),
+			'items_list'									=> __( 'Items list', 'moarebasicp' ),
+			'items_list_navigation'				=> __( 'Items list navigation', 'moarebasicp' ),
 		);
 
 		$args = array(
-			'hierarchical'			=> true, //hierarchy
-			'labels'						=> $labels,
-			'show_ui'						=> true,
-			'show_admin_column'	=> true,
-			'query_var'					=> true,
-			'rewrite'						=> array( 'slug' => 'custom-tax' ),
-			'show_in_rest'			=> true
+			'labels'							=> $labels,
+			'hierarchical'				=> true,
+			'public'							=> true,
+			'query_var'						=> true,
+			'rewrite'							=> array( 'slug' => 'custom-tax' ),
+			'show_ui'							=> true,
+			'show_admin_column'		=> true,
+			'show_in_nav_menus'		=> true,
+			'show_in_rest'				=> true
 		);
 
 		register_taxonomy( 'customtax', array( 'mycustom' ), $args );
