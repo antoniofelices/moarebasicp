@@ -70,14 +70,14 @@ class Moare_Basicp {
 		$this->settings = array(
 
 			// Basic.
-			'name'			=> __( 'Moare Basic P', 'moarebasicp' ),
-			'version'		=> $this->version,
+			'name'      => __( 'Moare Basic P', 'moarebasicp' ),
+			'version'   => $this->version,
 
 			// Urls.
-			'file'			=> __FILE__,
-			'basename'	=> plugin_basename( __FILE__ ),
-			'path'			=> plugin_dir_path( __FILE__ ),
-			'dir'				=> plugin_dir_url( __FILE__ ),
+			'file'      => __FILE__,
+			'basename'  => plugin_basename( __FILE__ ),
+			'path'      => plugin_dir_path( __FILE__ ),
+			'dir'       => plugin_dir_url( __FILE__ ),
 
 		);
 
@@ -168,33 +168,33 @@ class Moare_Basicp {
 
 		// Name.
 		$labels = array(
-			'name'								=> _x( 'Mycustoms', 'post type general name', 'moarebasicp' ),
-			'singular_name'				=> _x( 'Mycustom', 'post type singular name', 'moarebasicp' ),
-			'menu_name'						=> _x( 'Mycustoms', 'admin menu', 'moarebasicp' ),
-			'name_admin_bar'			=> _x( 'Mycustom', 'add new on admin bar', 'moarebasicp' ),
-			'add_new'							=> _x( 'Add new', 'mycustom' , 'moarebasicp' ),
-			'add_new_item'				=> __( 'Add new mycustom', 'moarebasicp' ),
-			'new_item'						=> __( 'New mycustom', 'moarebasicp' ),
-			'edit_item'						=> __( 'Edit mycustom', 'moarebasicp' ),
-			'view_item'						=> __( 'See mycustom', 'moarebasicp' ),
-			'all_items'						=> __( 'All mycustom', 'moarebasicp' ),
-			'search_items'				=> __( 'Search mycustom', 'moarebasicp' ),
-			'not_found'						=> __( 'Not found mycustom', 'moarebasicp' ),
-			'not_found_in_trash'	=> __( 'Not found mycustom in trash', 'moarebasicp' )
+			'name'                 => _x( 'Mycustoms', 'post type general name', 'moarebasicp' ),
+			'singular_name'        => _x( 'Mycustom', 'post type singular name', 'moarebasicp' ),
+			'menu_name'            => _x( 'Mycustoms', 'admin menu', 'moarebasicp' ),
+			'name_admin_bar'       => _x( 'Mycustom', 'add new on admin bar', 'moarebasicp' ),
+			'add_new'              => _x( 'Add new', 'mycustom' , 'moarebasicp' ),
+			'add_new_item'         => __( 'Add new mycustom', 'moarebasicp' ),
+			'new_item'             => __( 'New mycustom', 'moarebasicp' ),
+			'edit_item'            => __( 'Edit mycustom', 'moarebasicp' ),
+			'view_item'            => __( 'See mycustom', 'moarebasicp' ),
+			'all_items'            => __( 'All mycustom', 'moarebasicp' ),
+			'search_items'         => __( 'Search mycustom', 'moarebasicp' ),
+			'not_found'            => __( 'Not found mycustom', 'moarebasicp' ),
+			'not_found_in_trash'   => __( 'Not found mycustom in trash', 'moarebasicp' )
 		);
 
 		$args = array(
-			'labels'					=> $labels,
-			'description'			=> __( 'My custom post type', 'moarebasicp' ),
-			'public'					=> true,
-			'menu_position'		=> 15,
-			'menu_icon'				=> 'dashicons-carrot',
-			'supports'				=> array( 'title', 'author', 'thumbnail', 'editor', 'excerpt', 'comments', 'revisions' ),
-			'has_archive'			=> true,
-			'rewrite'					=> array('slug' => 'mycustom'),
-			'capability_type'	=> 'post',
-			'show_in_rest'		=> true,
-			'taxonomies'			=> array(''),
+			'labels'               => $labels,
+			'description'          => __( 'My custom post type', 'moarebasicp' ),
+			'public'               => true,
+			'menu_position'        => 15,
+			'menu_icon'            => 'dashicons-carrot',
+			'supports'             => array( 'title', 'author', 'thumbnail', 'editor', 'excerpt', 'comments', 'revisions' ),
+			'has_archive'          => true,
+			'rewrite'              => array('slug' => 'mycustom'),
+			'capability_type'      => 'post',
+			'show_in_rest'         => true,
+			'taxonomies'           => array(''),
 		);
 
 		register_post_type( 'mycustom', $args );
@@ -212,38 +212,38 @@ class Moare_Basicp {
 
 		// Name.
 		$labels = array(
-			'name'												=> _x( 'Taxonomies', 'Taxonomy General Name', 'moarebasicp' ),
-			'singular_name'								=> _x( 'Taxonomy', 'Taxonomy Singular Name', 'moarebasicp' ),
-			'menu_name'										=> __( 'Taxonomy', 'moarebasicp' ),
-			'all_items'										=> __( 'All Items', 'moarebasicp' ),
-			'parent_item'									=> __( 'Parent Item', 'moarebasicp' ),
-			'parent_item_colon'						=> __( 'Parent Item:', 'moarebasicp' ),
-			'new_item_name'								=> __( 'New Item Name', 'moarebasicp' ),
-			'add_new_item'								=> __( 'Add New Item', 'moarebasicp' ),
-			'edit_item'										=> __( 'Edit Item', 'moarebasicp' ),
-			'update_item'									=> __( 'Update Item', 'moarebasicp' ),
-			'view_item'										=> __( 'View Item', 'moarebasicp' ),
-			'separate_items_with_commas'	=> __( 'Separate items with commas', 'moarebasicp' ),
-			'add_or_remove_items'					=> __( 'Add or remove items', 'moarebasicp' ),
-			'choose_from_most_used'				=> __( 'Choose from the most used', 'moarebasicp' ),
-			'popular_items'								=> __( 'Popular Items', 'moarebasicp' ),
-			'search_items'								=> __( 'Search Items', 'moarebasicp' ),
-			'not_found'										=> __( 'Not Found', 'moarebasicp' ),
-			'no_terms'										=> __( 'No items', 'moarebasicp' ),
-			'items_list'									=> __( 'Items list', 'moarebasicp' ),
-			'items_list_navigation'				=> __( 'Items list navigation', 'moarebasicp' ),
+			'name'                          => _x( 'Taxonomies', 'Taxonomy General Name', 'moarebasicp' ),
+			'singular_name'                 => _x( 'Taxonomy', 'Taxonomy Singular Name', 'moarebasicp' ),
+			'menu_name'                     => __( 'Taxonomy', 'moarebasicp' ),
+			'all_items'                     => __( 'All Items', 'moarebasicp' ),
+			'parent_item'                   => __( 'Parent Item', 'moarebasicp' ),
+			'parent_item_colon'             => __( 'Parent Item:', 'moarebasicp' ),
+			'new_item_name'                 => __( 'New Item Name', 'moarebasicp' ),
+			'add_new_item'                  => __( 'Add New Item', 'moarebasicp' ),
+			'edit_item'                     => __( 'Edit Item', 'moarebasicp' ),
+			'update_item'                   => __( 'Update Item', 'moarebasicp' ),
+			'view_item'                     => __( 'View Item', 'moarebasicp' ),
+			'separate_items_with_commas'    => __( 'Separate items with commas', 'moarebasicp' ),
+			'add_or_remove_items'           => __( 'Add or remove items', 'moarebasicp' ),
+			'choose_from_most_used'         => __( 'Choose from the most used', 'moarebasicp' ),
+			'popular_items'                 => __( 'Popular Items', 'moarebasicp' ),
+			'search_items'                  => __( 'Search Items', 'moarebasicp' ),
+			'not_found'                     => __( 'Not Found', 'moarebasicp' ),
+			'no_terms'                      => __( 'No items', 'moarebasicp' ),
+			'items_list'                    => __( 'Items list', 'moarebasicp' ),
+			'items_list_navigation'         => __( 'Items list navigation', 'moarebasicp' ),
 		);
 
 		$args = array(
-			'labels'							=> $labels,
-			'hierarchical'				=> true,
-			'public'							=> true,
-			'query_var'						=> true,
-			'rewrite'							=> array( 'slug' => 'custom-tax' ),
-			'show_ui'							=> true,
-			'show_admin_column'		=> true,
-			'show_in_nav_menus'		=> true,
-			'show_in_rest'				=> true
+			'labels'                        => $labels,
+			'hierarchical'                  => true,
+			'public'                        => true,
+			'query_var'                     => true,
+			'rewrite'                       => array( 'slug' => 'custom-tax' ),
+			'show_ui'                       => true,
+			'show_admin_column'             => true,
+			'show_in_nav_menus'             => true,
+			'show_in_rest'                  => true
 		);
 
 		register_taxonomy( 'customtax', array( 'mycustom' ), $args );
@@ -305,7 +305,7 @@ class Moare_Basicp {
 	 * @access public
 	 * @return void
 	 */
-	public function hard_crop_images(){
+	public function hard_crop_images() {
 
 		add_image_size( 'medium', get_option( 'medium_size_w' ), get_option( 'medium_size_h' ), true );
 
